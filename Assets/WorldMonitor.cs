@@ -423,13 +423,7 @@ namespace oti.AI
                 }
             }
 
-            OctreeThreadParameters otp = new OctreeThreadParameters
-            {
-                ObjectIDs = new List<int>(TrackedObjectDataRef.Keys),
-                TotalTrackedObjects = TotalTrackedObjects,
-                Coordinates = getUpdatedPositions(new List<int>(TrackedObjectDataRef.Keys)),
-                DynamicObjects = TrackedObjectAffiliations
-            };
+            OctreeThreadParameters otp = refreshThreadingParameters();
 
             //construct initial octree            
             Octree.Initialize(InitialWorldSize, WorldOrigin, MinimumObjectSize);
